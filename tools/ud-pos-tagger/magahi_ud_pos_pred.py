@@ -44,7 +44,7 @@ try:
 	with open('mag_ud_pos_model.pkl','rb') as f:
 		clf = pickle.load(f)
 	
-	with open (f_path[:f_path.rfind('.')]+'_labelled', 'a') as f:
+	with open (f_path[:f_path.rfind('.')]+'_labelled.conll', 'a') as f:
 		with open (f_path, 'r') as f_r:
 			all_data = f_r.read()
 			for data in all_data.splitlines():
