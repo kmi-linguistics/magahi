@@ -1,0 +1,61 @@
+(.*)(वा$)	N-NN	fam
+(.*)(िआ$)	N-NN	fam
+(.*)(ीआ$)	N-NN	fam
+(.*)(मा$)	N-NN	fam
+(.*)(वा$)	N-NNP	fam
+(.*)(िआ$)	N-NNP	fam
+(.*)(ीआ$)	N-NNP	fam
+(.*)(मा$)	N-NNP	fam
+(.*)(वन$)	N-NN	fam.pl
+(.*)(िअन$)	N-NN	fam.pl
+(.*)(ीअन$)	N-NN	fam.pl
+(.*)(मन$)	N-NN	fam.pl
+(.*)(वन$)	N-NNP	fam.pl
+(.*)(िअन$)	N-NNP	fam.pl
+(.*)(ीअन$)	N-NNP	fam.pl
+(.*)(मन$)	N-NNP	fam.pl
+%default%	N-NN	sg
+%default%	N-NNP	sg
+#
+#The entries before @ could be any number (that will indicate count) or it could be keyword 'next' or 'previous' optionally followed by a number; if not followed by a number then just previous and just next would be taken; if there is a number, say if it is next3 then the 3rd entry would be taken
+#The entry after @  could be 'tag' or 'word' for searching in the tags or in the words
+#The entry after # would be the exact word or tag that needs to be searched for in that position in that particular set (i.e.tag or words)
+# There could be multiple pre-conditions separated by the keyword 'and', 'or' or 'not'
+# The second column contains the POS category; here the position of the category (if the same category appears multiple times in the sentence) could be specified separated by "#"; so if there are 2 VAUX then the rule could be for first VAUX (which should be simply VAUX) or second VAUX (which could be VAUX#2)
+#One should be careful to give proper pre-conditions in such cases
+#
+0@tag#V-VAUXand(..*)(ल.*)	V-VM	pst.nprog
+0@tag#V-VAUXand(..*)(क.*)	V-VM	pst.nprog
+0@tag#V-VAUXand(..*)(ब.*)	V-VM	fut.nprog
+0@tag#V-VAUXand(..*)(त.*)	V-VM	fut.nprog
+0@tag#V-VAUXand%default%	V-VM	prs.nprog
+1@tag#V-VAUXand(..*)(ल.*)	V-VAUX	pst
+1@tag#V-VAUXand(..*)(क.*)	V-VAUX	pst
+1@tag#V-VAUXand(..*)(ब.*)	V-VAUX	fut
+1@tag#V-VAUXand(..*)(त.*)	V-VAUX	fut
+1@tag#V-VAUXand%default%	V-VAUX	prs
+1@tag#V-VAUXand(..*)(अ$)	V-VM	nprog
+1@tag#V-VAUXand(..*)(अइत$)	V-VM	prog
+1@tag#V-VAUXand(..*)(इत$)	V-VM	prog
+1@tag#V-VAUXand(..*)(अईत$)	V-VM	prog
+1@tag#V-VAUXand(..*)(ईत$)	V-VM	prog
+1@tag#V-VAUXand(..*)(ल.*)	V-VM	prf
+1@tag#V-VAUXand(..*)(ल$)	V-VM	exp
+1@tag#V-VAUXand(..*)(अल$)	V-VM	exp
+1@tag#V-VAUXand(..*)(ले$)	V-VM	exp
+1@tag#V-VAUXand%default%	V-VM	nprog
+2@tag#V-VAUXand(..*)(ल.*)	V-VAUX#2	pst
+2@tag#V-VAUXand(..*)(क.*)	V-VAUX#2	pst
+2@tag#V-VAUXand(..*)(ब.*)	V-VAUX#2	fut
+2@tag#V-VAUXand(..*)(त.*)	V-VAUX#2	fut
+2@tag#V-VAUXand%default%	V-VAUX#2	prs
+2@tag#V-VAUXand(..*)(अ$)	V-VAUX	nprog
+2@tag#V-VAUXand(..*)(अइत$)	V-VAUX	prog
+2@tag#V-VAUXand(..*)(इत$)	V-VAUX	prog
+2@tag#V-VAUXand(..*)(अईत$)	V-VAUX	prog
+2@tag#V-VAUXand(..*)(ईत$)	V-VAUX	prog
+2@tag#V-VAUXand(..*)(ल.*)	V-VAUX	prf
+2@tag#V-VAUXand(..*)(ल$)	V-VAUX	exp
+2@tag#V-VAUXand(..*)(अल$)	V-VAUX	exp
+2@tag#V-VAUXand(..*)(ले$)	V-VAUX	exp
+2@tag#V-VAUXand%default%	V-VAUX	nprog
